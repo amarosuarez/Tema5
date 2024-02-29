@@ -4,8 +4,12 @@ import java.util.Scanner;
 
 public class Main {
 	
+	// Elemento estático CuentaCorriente
 	static CuentaCorriente cc;
+	
+	// Elemento estático Scanner
 	static Scanner sc;
+	
 	// Variable donde se almacenará la opción seleccionada
 	static int opcion;
 
@@ -51,9 +55,11 @@ public class Main {
 			cc = new CuentaCorriente(dni, saldoInicial);
 		}
 		
+		// Ejecutamos mientras el usuario no ingrese el caracter S
 		do {
 			// Elemento decorador
 			System.out.println("\n----------------------------------------------------------------\n");
+			
 			// Le mostramos el menú al usuario
 			showMenu();
 			
@@ -78,7 +84,9 @@ public class Main {
 	 * Función que muestra el menú de opciones
 	 */
 	static void showMenu() {
+		// Mostramos las opciones mientra la opción elegida no esté entre 1 y 3
 		do {
+			// Mostramos el mensaje con las opciones
 			System.out.println(
 					"¿Qué desea hacer?\n" + 
 					"1. Mostrar información\n" +
@@ -97,21 +105,26 @@ public class Main {
 	static void optionSelected(int opcion) {
 		// Switch para mostrar la opción seleccionada
 		switch (opcion) {
+			// Opción 1 muestra la información de la cuenta
 			case 1:
 				// Mostramos la información de la cuenta
 				cc.muestraInformacion();
 				break;
+			
+			/* Opción 2 retira dinero y muetra el saldo actual
+			 * si es posible y muestra mensaje de error si no es posible */
 			case 2:
-							
 				// Le pedimos cuanto desea retirar y lo retiramos si es posible
 				if (cc.sacarDinero(pideMovimiento(false))) {
 					// Mostramos el nuevo saldo actual
 					muestraSaldo();
 				} else {
+					// Mostramos el mensaje de fondos insuficientes
 					System.out.println("FONDOS INSUFICIENTES");
 				}
-				
 				break;
+			
+			// Opción 3 ingresa dinero en la cuenta y muestra el saldo actual
 			case 3:
 				// Le pedimos cuanto desea ingresar y lo ingresamos
 				cc.ingresarDinero(pideMovimiento(true));
@@ -129,7 +142,6 @@ public class Main {
 	static double pideMovimiento(boolean op) {
 		// Variable donde se almacenará el saldo a ingresar o retirar
 		double saldoMovimiento = 0;
-		
 
 		// Elemento decorador
 		System.out.println("\n----------------------------------------------------------------\n");
@@ -146,6 +158,7 @@ public class Main {
 	 * Función que muestra el saldo actual
 	 */
 	static void muestraSaldo() {
+		// Mostramos el saldo actual
 		System.out.println("Su saldo actual es: " + cc.getSaldo() + " €");
 	}
 	
