@@ -23,9 +23,11 @@ public class CuentaCorriente {
 	 * @param saldo Saldo inicial del titular
 	 */
 	public CuentaCorriente(String dni, double saldo) {
+		// Comprobamos que el dni no sea nulo ni vacío
 		if (dni != null && !dni.equals(""))
 			this.dni = dni;
 		
+		// Comprobamos que el saldo sea mayor o igual que 0
 		if (saldo >= 0)
 			this.saldo = saldo;
 	}
@@ -37,12 +39,15 @@ public class CuentaCorriente {
 	 * @param saldo Saldo inicial del titular
 	 */
 	public CuentaCorriente(String dni, String nombre, double saldo) {
+		// Comprobamos que el dni no sea nulo ni vacío
 		if (dni != null && !dni.equals(""))
 			this.dni = dni;
 		
+		// Comprobamos que el nombre no sea nulo ni vacío
 		if (nombre != null && !nombre.equals(""))
 			this.nombre = nombre;
 		
+		// Comprobamos que el saldo sea mayor o igual que 0
 		if (saldo >= 0)
 			this.saldo = saldo;
 	}
@@ -81,17 +86,27 @@ public class CuentaCorriente {
 	 * Función que muestra la información de la cuenta
 	 */
 	public void muestraInformacion() {
+		// Elemento decorador
+		System.out.println("\n----------------------------------------------------------------\n");
+		
+		// Mostramos la información
 		System.out.println(
-				"INFORMACIÓN DE LA CUENTA\n" +
-				"DNI DEL TITULAR: " + this.dni + "\n"
+				"\t\tINFORMACIÓN DE LA CUENTA\n" +
+				"DNI DEL TITULAR: " + this.dni
 		);
 		
-		if (this.nombre != null && this.nombre.equals("")) 
+		// Comprobamos si el nombre no está vacío para mostrarlo
+		if (this.nombre != null && !this.nombre.equals(""))  {
 			System.out.println("NOMBRE DEL TITULAR: " + this.nombre);
+		}
 		
-		System.out.println("SALDO ACTUAL: " + this.saldo);
+		System.out.println("SALDO ACTUAL: " + this.saldo + " €");
 	}
  
+	/**
+	 * Función que devuelve el saldo
+	 * @return Saldo
+	 */
 	public double getSaldo() {
 		return this.saldo;
 	}
