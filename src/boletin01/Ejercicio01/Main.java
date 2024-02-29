@@ -117,7 +117,7 @@ public class Main {
 				// Le pedimos cuanto desea retirar y lo retiramos si es posible
 				if (cc.sacarDinero(pideMovimiento(false))) {
 					// Mostramos el nuevo saldo actual
-					muestraSaldo();
+					cc.muestraSaldo();
 				} else {
 					// Mostramos el mensaje de fondos insuficientes
 					System.out.println("FONDOS INSUFICIENTES");
@@ -129,7 +129,7 @@ public class Main {
 				// Le pedimos cuanto desea ingresar y lo ingresamos
 				cc.ingresarDinero(pideMovimiento(true));
 				// Mostramos el nuevo saldo actual
-				muestraSaldo();
+				cc.muestraSaldo();
 				break;
 		}
 	}
@@ -152,14 +152,6 @@ public class Main {
 				
 		// Devolvemos el saldo a retirar o ingresar
 		return saldoMovimiento;
-	}
-	
-	/**
-	 * Función que muestra el saldo actual
-	 */
-	static void muestraSaldo() {
-		// Mostramos el saldo actual
-		System.out.println("Su saldo actual es: " + cc.getSaldo() + " €");
 	}
 	
 }

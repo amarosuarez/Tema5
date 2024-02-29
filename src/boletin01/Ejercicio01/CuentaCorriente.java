@@ -8,7 +8,7 @@ public class CuentaCorriente {
 	private String dni;
 	
 	/**
-	 * Atributo que almacena el nombr del titular
+	 * Atributo que almacena el nombre del titular
 	 */
 	private String nombre;
 	
@@ -109,5 +109,13 @@ public class CuentaCorriente {
 	 */
 	public double getSaldo() {
 		return this.saldo;
+	}
+	
+	/**
+	 * Función que muestra el saldo actual
+	 */
+	void muestraSaldo() {
+		// Mostramos el saldo actual
+		System.out.println("Su saldo actual es: " + this.saldo + " €");
 	}
 }
