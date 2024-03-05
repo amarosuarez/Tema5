@@ -31,12 +31,14 @@ public class CuentaCorriente {
 	 */
 	public CuentaCorriente(String dni, double saldo) {
 		// Comprobamos que el dni no sea nulo ni vacío
-		if (dni != null && !dni.equals(""))
+		if (dni != null && !dni.equals("")) {
 			this.dni = dni;
+		}
 		
 		// Comprobamos que el saldo sea mayor o igual que 0
-		if (saldo >= 0)
+		if (saldo >= 0) {
 			this.saldo = saldo;
+		}
 	}
 	
 	/**

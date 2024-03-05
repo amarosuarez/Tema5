@@ -41,10 +41,22 @@ public class Libro {
 	 * @param ejemplaresPrestados Ejemplares prestados del libro
 	 */
 	public Libro(String titulo, String autor, int ejemplares, int ejemplaresPrestados) {
-		this.titulo = titulo;
-		this.autor = autor;
-		this.ejemplares = ejemplares;
-		this.ejemplaresPrestados = ejemplaresPrestados;
+		if (titulo != null && !titulo.equals("")) {
+			this.titulo = titulo;
+		}
+		
+		if (autor != null && !autor.equals("")) {
+			this.autor = autor;
+		}
+		
+		if (ejemplares >= 0) {
+			this.ejemplares = ejemplares;
+		}
+		
+		if (ejemplaresPrestados >= 0) {
+			this.ejemplaresPrestados = ejemplaresPrestados;
+		}
+		
 	}
 	
 	/**
