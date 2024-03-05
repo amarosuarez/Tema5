@@ -108,7 +108,7 @@ public class Main {
 			// Opción 1 muestra la información de la cuenta
 			case 1:
 				// Mostramos la información de la cuenta
-				cc.muestraInformacion();
+				System.out.println(cc.muestraInformacion());
 				break;
 			
 			/* Opción 2 retira dinero y muetra el saldo actual
@@ -117,7 +117,7 @@ public class Main {
 				// Le pedimos cuanto desea retirar y lo retiramos si es posible
 				if (cc.sacarDinero(pideMovimiento(false))) {
 					// Mostramos el nuevo saldo actual
-					cc.muestraSaldo();
+					System.out.println(cc.muestraSaldo());
 				} else {
 					// Mostramos el mensaje de fondos insuficientes
 					System.out.println("FONDOS INSUFICIENTES");
@@ -129,7 +129,7 @@ public class Main {
 				// Le pedimos cuanto desea ingresar y lo ingresamos
 				cc.ingresarDinero(pideMovimiento(true));
 				// Mostramos el nuevo saldo actual
-				cc.muestraSaldo();
+				System.out.println(cc.muestraSaldo());
 				break;
 		}
 	}

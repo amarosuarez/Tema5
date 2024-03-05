@@ -1,21 +1,28 @@
 package boletin01.Ejercicio01;
 
+/**
+ * Clase que almacena los métodos para ingresar, retirar y mostrar información
+ * de una cuenta corriente
+ * 
+ * @author Amaro
+ * @version 1.0
+ */
 public class CuentaCorriente {
 	
 	/**
 	 * Atributo que almacena el DNI de titular
 	 */
-	private String dni;
+	private String dni = "";
 	
 	/**
 	 * Atributo que almacena el nombre del titular
 	 */
-	private String nombre;
+	private String nombre = "";
 	
 	/**
 	 * Atributo que almacena el saldo del titular
 	 */
-	private double saldo;
+	private double saldo = 0.0;
 		
 	/**
 	 * Constructor con los parámetros DNI y saldo
@@ -85,22 +92,26 @@ public class CuentaCorriente {
 	/**
 	 * Función que muestra la información de la cuenta
 	 */
-	public void muestraInformacion() {
-		// Elemento decorador
-		System.out.println("\n----------------------------------------------------------------\n");
+	public String muestraInformacion() {
+		// Variable donde se almacenará la información
+		String cadena = "";
 		
-		// Mostramos la información
-		System.out.println(
-				"\t\tINFORMACIÓN DE LA CUENTA\n" +
-				"DNI DEL TITULAR: " + this.dni
-		);
+		// Elemento decorador
+		cadena += "----------------------------------------------------------------\n";
+		
+		// Almacenamos la información
+		cadena += "\t\tINFORMACIÓN DE LA CUENTA\n";
+		cadena += "DNI DEL TITULAR: " + this.dni;
 		
 		// Comprobamos si el nombre no está vacío para mostrarlo
 		if (this.nombre != null && !this.nombre.equals(""))  {
-			System.out.println("NOMBRE DEL TITULAR: " + this.nombre);
+			cadena += "\nNOMBRE DEL TITULAR: " + this.nombre;
 		}
 		
-		System.out.println("SALDO ACTUAL: " + this.saldo + " €");
+		cadena += "\nSALDO ACTUAL: " + this.saldo + " €";
+		
+		// Devolvemos la cadena
+		return cadena;
 	}
  
 	/**
@@ -114,8 +125,14 @@ public class CuentaCorriente {
 	/**
 	 * Función que muestra el saldo actual
 	 */
-	void muestraSaldo() {
-		// Mostramos el saldo actual
-		System.out.println("Su saldo actual es: " + this.saldo + " €");
+	public String muestraSaldo() {
+		// Variable donde se almacenará el saldo actual
+		String cadena = "";
+		
+		// Almacenamos el saldo actual
+		cadena += "Su saldo actual es: " + this.saldo + " €";
+		
+		// Devolvemos la cadena
+		return cadena;
 	}
 }
