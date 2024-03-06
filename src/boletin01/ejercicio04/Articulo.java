@@ -7,6 +7,11 @@ package boletin01.ejercicio04;
  * @version 1.0
  */
 public class Articulo {
+	
+	/**
+	 * Atributo constante que almacena el IVA
+	 */
+	public static final double IVA = 0.21;
 
 	/**
 	 * Atributo que almacena el nombre del artículo
@@ -17,11 +22,6 @@ public class Articulo {
 	 * Atributo que almacena el precio
 	 */
 	double precio = 0.0;
-
-	/**
-	 * Atributo constante que almacena el IVA
-	 */
-	public static final double IVA = 0.21;
 
 	/**
 	 * Atributo que almacenan cuantos artículos quedan
