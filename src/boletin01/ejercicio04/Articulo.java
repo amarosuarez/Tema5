@@ -211,7 +211,9 @@ public class Articulo {
 	 */
 	public void almacenar(int cantidad) {
 		// Actualizamos el stock
-		this.cuantosQuedan += cantidad;
+		if (cantidad > 0) {
+			this.cuantosQuedan += cantidad;
+		}
 	}
 
 	@Override
