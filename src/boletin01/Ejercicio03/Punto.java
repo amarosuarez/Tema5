@@ -28,6 +28,38 @@ public class Punto {
 		this.coordY = coordY;
 	}
 	
+	/**	
+	 * Obtiene la coordenada X
+	 * @return Devuelve la coordenada X
+	 */
+	public int getCoordX() {
+		return this.coordX;
+	}
+
+	/**
+	 * Añade la coordenada X
+	 * @param coordX Coordenada X
+	 */
+	public void setCoordX(int coordX) {
+		this.coordX = coordX;
+	}
+	
+	/**
+	 * Obtiene la coordenada Y
+	 * @return Devuelve la coordenada Y
+	 */
+	public int getCoordY() {
+		return this.coordY;
+	}
+	
+	/**
+	 * Añade la coordenada Y
+	 * @param coordY Coordenada Y
+	 */
+	public void setCoordY(int coordY) {
+		this.coordY = coordY;
+	}
+
 	/***
 	 * Método que devuelve las coordenadas a imprimir
 	 * @return Coordenadas a imprimir
@@ -37,7 +69,7 @@ public class Punto {
 		String coordenadas = "";
 		
 		// Almacenamos las coordenadas
-		coordenadas = "(" + coordX + ", " + coordY + ")";
+		coordenadas = "(" + this.coordX + ", " + this.coordY + ")";
 		
 		// Devolvemos las coordenadas
 		return coordenadas;
@@ -50,10 +82,10 @@ public class Punto {
 	 */
 	void setXY(int x, int y) {
 		// Modificamos la variable x
-		coordX = x;
+		this.coordX = x;
 		
 		// Modificamos la variable y
-		coordY = y;
+		this.coordY = y;
 	}
 	
 	/**
@@ -69,12 +101,12 @@ public class Punto {
 		int nuevaY = 0;
 		
 		// Calculamos las nuevas coordenadas
-		nuevaX = coordX + dx;
-		nuevaY = coordY + dy;
+		nuevaX = this.coordX + dx;
+		nuevaY = this.coordY + dy;
 		
 		// Modificamos las coordenadas
-		coordX = nuevaX;
-		coordY = nuevaY;
+		this.coordX = nuevaX;
+		this.coordY = nuevaY;
 	}
 	
 	/**
@@ -87,7 +119,7 @@ public class Punto {
 		double distancia = 0;
 		
 		// Calculamos la distancia
-		distancia = Math.sqrt( Math.pow((p.coordX - this.coordX), 2) + Math.pow((p.coordY - this.coordY), 2));  
+		distancia = Math.sqrt( Math.pow((p.coordX - this.coordX), 2) + Math.pow((p.coordY - this.coordY), 2) );  
 		
 		// Devolvemos la distancia
 		return distancia;

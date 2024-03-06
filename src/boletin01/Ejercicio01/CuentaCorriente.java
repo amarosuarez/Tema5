@@ -62,6 +62,54 @@ public class CuentaCorriente {
 	}
 	
 	/**
+	 * Función que devuelve el DNI
+	 * @return Devuelve el DNI
+	 */
+	public String getDni() {
+		return dni;
+	}
+	
+	/**
+	 * Función que añade el DNI
+	 * @param dni DNI del titular
+	 */
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
+	/**
+	 * Función que devuelve el nombre
+	 * @return Devuelve el nombre
+	 */
+	public String getNombre() {
+		return nombre;
+	}
+	
+	/**
+	 * Función que añade el nombre
+	 * @param nombre Nombre del titular
+	 */
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	/**
+	 * Función que devuelve el saldo
+	 * @return Saldo
+	 */
+	public double getSaldo() {
+		return this.saldo;
+	}
+
+	/**
+	 * Función que añade el saldo
+	 * @param saldo Salddo del cliente
+	 */
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+
+	/**
 	 * Función que indica si es posible sacar dinero o no, en caso positivo le resta la cantidad al saldo
 	 * @param cantidad Cantidad a retirar
 	 * @return Si es posible realizar la operación o no
@@ -87,8 +135,9 @@ public class CuentaCorriente {
 	 * @param cantidad Cantidad a incrementar
 	 */
 	public void ingresarDinero(double cantidad) {
-		if (cantidad > 0)
+		if (cantidad > 0) {
 			this.saldo += cantidad;
+		}
 	}
 	
 	/**
@@ -114,14 +163,6 @@ public class CuentaCorriente {
 		
 		// Devolvemos la cadena
 		return cadena;
-	}
- 
-	/**
-	 * Función que devuelve el saldo
-	 * @return Saldo
-	 */
-	public double getSaldo() {
-		return this.saldo;
 	}
 	
 	/**
