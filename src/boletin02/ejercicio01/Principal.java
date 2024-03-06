@@ -1,5 +1,6 @@
 package boletin02.ejercicio01;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -20,6 +21,9 @@ public class Principal {
 			// Mostramos el menú y almacenamos la opción
 			menu();
 			eleccion = sc.nextInt();
+			
+			// Limpiamos el Scanner
+			sc.nextLine();
 
 			// Ejecutamos la eleccion
 			switch (eleccion) {
@@ -28,7 +32,8 @@ public class Principal {
 				break;
 
 			case 2:
-
+				nuevoAlumno(arrayAlumnos);
+				break;
 			}
 
 		} while (eleccion != 5);
@@ -51,7 +56,7 @@ public class Principal {
 		boolean encontrado = false;
 
 		// Bucle para recorrer el listado de alumnos
-		for (int i = 0; i > arrayAlumno.length; i++) {
+		for (int i = 0; i < arrayAlumno.length; i++) {
 			// Comprobamos que el alumno no sea nulo
 			if (arrayAlumno[i] != null) {
 				// Mostramos la información del alumno
@@ -69,7 +74,7 @@ public class Principal {
 	}
 
 	// Función que añade un nuevo alumno
-	static boolean nuevoAlumno() {
+	static boolean nuevoAlumno(Alumno[] arrayAlumno) {
 		// Variable donde se almacenará si se ha añadido el nuevo alumno o no
 		boolean anyadido = false;
 
@@ -82,28 +87,9 @@ public class Principal {
 		// Variable que almacena si el valor es correcto o no
 		boolean valorCorrecto = false;
 		
-		// Bucle que pide el nombre al usuario mientras introduzca un dato erróneo
-		do {
-			// Comprobamos que el valor introducido sea correcto
-			try {
-				// Le preguntamos el nombre al usuario
-				System.out.println("¿Cuál es el nombre del alumno?");
-				nombre = sc.nextLine();
-				
-				// Cambiamos el valor al booleano a true
-				valorCorrecto = true;
-			} catch (InputMismatchException e) {
-				// Mostramos el mensaje de error
-				System.out.println("Valores incorrectos");
-			} finally {
-				// Limpiamos el Scanner
-				sc.nextLine();
-			}
-			
-		} while (!valorCorrecto);
-		
-		// Cambiamos el valor al booleano
-		valorCorrecto = false;
+		// Le preguntamos el nombre al usuario
+		System.out.println("¿Cuál es el nombre del alumno?");
+		nombre = sc.nextLine();
 		
 		// Bucle que pide la nota media al usuario mientras introduzca un dato erróneo
 		do {
@@ -127,8 +113,42 @@ public class Principal {
 		
 		// Creamos el objeto
 		Alumno alumno = new Alumno(nombre, notaMedia);
+		
+		// Lo añadimos en el array donde sea nulo
+		// Para ello buscamos el primer nulo con una función auxiliar
+		arrayAlumno[buscaNulo(arrayAlumno)] = alumno;
 
 		// Devolvemos el booleano
 		return anyadido;
+	}
+	
+	// Función que busca nulo y devuelve la posición del primer nulo encontrado
+	static int buscaNulo(Alumno[] arraysAlumnos) {
+		// Variable donde se almacenará el primer nulo encontrado
+		int nulo = 0;
+		
+		// Auxiliar boolean que indica si se ha encontrado o no
+		boolean encontrado = false;
+		
+		// Auxiliar que almacena el índice
+		int indice = 0;
+		
+		// Bucle para buscar en el array
+		while (indice < arraysAlumnos.length && !encontrado) {
+			// Comprobamos si es nulo
+			if (arraysAlumnos[indice] == null) {
+				// Añadimos la posicion
+				nulo = indice;
+				
+				// Cambiamos el valor a encontrado
+				encontrado = true;
+			}
+			
+			// Aumentamos el indice
+			indice++;
+		}
+		
+		// Devolvemos la posición
+		return nulo;
 	}
 }
