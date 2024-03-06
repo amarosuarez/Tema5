@@ -1,4 +1,4 @@
-package boletin01.Ejercicio01;
+package boletin01.ejercicio01;
 
 /**
  * Clase que almacena los métodos para ingresar, retirar y mostrar información

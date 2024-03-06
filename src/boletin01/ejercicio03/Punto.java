@@ -1,4 +1,4 @@
-package boletin01.Ejercicio03;
+package boletin01.ejercicio03;
 
 /**
  * Clase que almacena los métodos de un plano

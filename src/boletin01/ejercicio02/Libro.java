@@ -1,4 +1,4 @@
-package boletin01.Ejercicio02;
+package boletin01.ejercicio02;
 
 /**
  * Clase que almacena a información de un libro
