@@ -11,12 +11,12 @@ public class Alumno {
 	/**
 	 * Atributo donde se almacenará el nombre del alumno
 	 */
-	String nombre = "";
+	private String nombre = "";
 
 	/**
 	 * Atributo donde se almacenará la nota media del alumno
 	 */
-	double notaMedia = 0.0;
+	private double notaMedia = 0.0;
 
 	/**
 	 * Constructor sin parámetros

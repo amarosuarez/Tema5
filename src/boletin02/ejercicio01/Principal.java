@@ -124,31 +124,16 @@ public class Principal {
 	
 	// Función que busca nulo y devuelve la posición del primer nulo encontrado
 	static int buscaNulo(Alumno[] arraysAlumnos) {
-		// Variable donde se almacenará el primer nulo encontrado
-		int nulo = 0;
-		
-		// Auxiliar boolean que indica si se ha encontrado o no
-		boolean encontrado = false;
-		
 		// Auxiliar que almacena el índice
 		int indice = 0;
 		
 		// Bucle para buscar en el array
-		while (indice < arraysAlumnos.length && !encontrado) {
-			// Comprobamos si es nulo
-			if (arraysAlumnos[indice] == null) {
-				// Añadimos la posicion
-				nulo = indice;
-				
-				// Cambiamos el valor a encontrado
-				encontrado = true;
-			}
-			
+		while (indice < arraysAlumnos.length && arraysAlumnos[indice] != null) {
 			// Aumentamos el indice
 			indice++;
 		}
 		
 		// Devolvemos la posición
-		return nulo;
+		return indice;
 	}
 }
