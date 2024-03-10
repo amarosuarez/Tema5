@@ -5,16 +5,19 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Principal {
-
+	
 	// Creamos el Scanner
 	static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		// Variable donde se almacenará la elección del usuario
 		int eleccion = 0;
-
-		// Array de 30 alumnos que representa a un grupo
-		Alumno[] arrayAlumnos = new Alumno[30];
+		
+		// Variable donde se almacenará el nombre del alumno
+		String nombre = "";
+		
+		// Variable donde se almacenará la nota del alumno
+		double nota = 0.0;
 
 		// Ejecutamos el bucle hasta que el usuario elija la opción para salirse
 		do {
@@ -27,16 +30,70 @@ public class Principal {
 
 			// Ejecutamos la eleccion
 			switch (eleccion) {
-			case 1:
-				muestraListado(arrayAlumnos);
-				break;
-
-			case 2:
-				nuevoAlumno(arrayAlumnos);
-				break;
+				case 1:
+					// Imprimimos el listado de alumnos
+					ArrayAlumno.imprimir();
+					break;
+	
+				case 2:
+					// Añade un alumno
+					// Le pedimos el nombre al usuario y lo almacenamos
+					nombre = preguntaNombre();
+					
+					// Le pedimos la nota al usuario y la almacenamos
+					nota = preguntaNota();
+					
+					// Comprobamos que aún hayan posiciones libres en el array
+					if (ArrayAlumno.nuevoAlumno(nombre, nota)) {
+						// Indicamos que se ha añadido al alumno
+						System.out.println("Alumno añadido");
+					} else {
+						// Indicamos que el array está lleno
+						System.out.println("Array lleno");
+					}
+					
+					break;
+				
+				case 3:
+					// Modifica un alumno
+					// Le pedimos el nombre al usuario y lo almacenamos
+					nombre = preguntaNombre();
+			
+					// Le pedimos la nota al usuario y la almacenamos
+					nota = preguntaNota();
+					
+					// Comprobamos si se ha podido modificar al alumno
+					if (ArrayAlumno.modifica(nombre, nota)) {
+						// Mostramos que se ha modificado
+						System.out.println("Alumno modificado correctamente");
+					} else {
+						// Mostramos que no se ha modificado
+						System.out.println("Alumno no encontrado");
+					}
+					
+					break;
+				
+				case 4:
+					// Elimina un alumno
+					// Le pedimos el nombre al usuario y lo almacenamos
+					nombre = preguntaNombre();
+					
+					// Comprobamos si se ha podido eliminar
+					if (ArrayAlumno.elimina(nombre)) {
+						// Mostramos que se ha eliminado
+						System.out.println("Alumno eliminado correctamente");
+					} else {
+						// Mostramos que no se ha eliminado
+						System.out.println("Alumno no encontrado");
+					}
+					
+					break;
 			}
 
 		} while (eleccion != 5);
+		
+		// Mostramos un mensaje de despedida
+		System.out.println("¡Adiós!");
 
 		// Cerramos el Scanner
 		sc.close();
@@ -49,91 +106,31 @@ public class Principal {
 				+ "3. Modificar.\n" + "4. Borrar.\n" + "5. Salir.");
 
 	}
-
-	// Fución que muestra los alumnos que no son
-	static void muestraListado(Alumno[] arrayAlumno) {
-		// Variable donde se almacena si se ha encontrado algún alumno
-		boolean encontrado = false;
-
-		// Bucle para recorrer el listado de alumnos
-		for (int i = 0; i < arrayAlumno.length; i++) {
-			// Comprobamos que el alumno no sea nulo
-			if (arrayAlumno[i] != null) {
-				// Mostramos la información del alumno
-				System.out.println(arrayAlumno[i]);
-
-				// Cambiamos el valor a true del booleano
-				encontrado = true;
-			}
-		}
-
-		// Comprobamos si no hay alumnos
-		if (!encontrado) {
-			System.out.println("No hay alumnos");
-		}
-	}
-
-	// Función que añade un nuevo alumno
-	static boolean nuevoAlumno(Alumno[] arrayAlumno) {
-		// Variable donde se almacenará si se ha añadido el nuevo alumno o no
-		boolean anyadido = false;
-
-		// Variable donde se almacenará el nombre del alumno
+	
+	// Función que pregunta el nombre y lo devuelve
+	static String preguntaNombre() {
+		// Variable donde se almacenará el nombre
 		String nombre = "";
-
-		// Variable donde se almacenará la nota media del alumno
-		double notaMedia = 0.0;
 		
-		// Variable que almacena si el valor es correcto o no
-		boolean valorCorrecto = false;
-		
-		// Le preguntamos el nombre al usuario
-		System.out.println("¿Cuál es el nombre del alumno?");
+		// Le pedimos el nombre al usuario y lo almacenamos
+		System.out.println("¿Cómo se llama el alumno?");
 		nombre = sc.nextLine();
 		
-		// Bucle que pide la nota media al usuario mientras introduzca un dato erróneo
-		do {
-			// Comprobamos que el valor introducido sea correcto
-			try {
-				// Le preguntamos la nota media al usuario
-				System.out.println("¿Cuál es el la nota media del alumno?");
-				notaMedia = sc.nextDouble();
-				
-				// Cambiamos el valor al booleano a true
-				valorCorrecto = true;
-			} catch (InputMismatchException e) {
-				// Mostramos el mensaje de error
-				System.out.println("Valores incorrectos");
-			} finally {
-				// Limpiamos el Scanner
-				sc.nextLine();
-			}
-			
-		} while (!valorCorrecto);
-		
-		// Creamos el objeto
-		Alumno alumno = new Alumno(nombre, notaMedia);
-		
-		// Lo añadimos en el array donde sea nulo
-		// Para ello buscamos el primer nulo con una función auxiliar
-		arrayAlumno[buscaNulo(arrayAlumno)] = alumno;
-
-		// Devolvemos el booleano
-		return anyadido;
+		// Devolvemos el nombre
+		return nombre;
 	}
 	
-	// Función que busca nulo y devuelve la posición del primer nulo encontrado
-	static int buscaNulo(Alumno[] arraysAlumnos) {
-		// Auxiliar que almacena el índice
-		int indice = 0;
+	// Función que pregunta la nota y la devuelve
+	static double preguntaNota() {
+		// Variable donde se almacenará la nota
+		double nota = 0.0;
 		
-		// Bucle para buscar en el array
-		while (indice < arraysAlumnos.length && arraysAlumnos[indice] != null) {
-			// Aumentamos el indice
-			indice++;
-		}
+		// Le pedimos la nota al usuario y la almacenamos
+		System.out.println("¿Cuál es la nota media del alumno?");
+		nota = sc.nextDouble();
 		
-		// Devolvemos la posición
-		return indice;
+		// Devolvemos la nota
+		return nota;
 	}
+
 }

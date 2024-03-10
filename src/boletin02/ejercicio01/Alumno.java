@@ -22,6 +22,9 @@ public class Alumno {
 	 * Constructor sin parámetros
 	 */
 	public Alumno() {
+		// Podemos inicializar aquí los parámetros
+		this.nombre = "";
+		this.notaMedia = 0.0;
 	}
 
 	/**
@@ -36,8 +39,8 @@ public class Alumno {
 			this.nombre = nombre;
 		}
 
-		// Comprobamso que la nota media sea mayor o igual que 0
-		if (notaMedia >= 0) {
+		// Comprobamso que la nota media sea mayor o igual que 0 y menor o igual que 10
+		if (notaMedia >= 0 && notaMedia <= 10) {
 			this.notaMedia = notaMedia;
 		}
 	}
@@ -78,25 +81,25 @@ public class Alumno {
 	 * @param notaMedia Nota media del alumno
 	 */
 	public void setNotaMedia(double notaMedia) {
-		// Comprobamso que la nota media sea mayor o igual que 0
-		if (notaMedia >= 0) {
+		// Comprobamso que la nota media sea mayor o igual que 0 y menor o igual que 10
+		if (notaMedia >= 0 && notaMedia <= 10) {
 			this.notaMedia = notaMedia;
 		}
 	}
 	
-	@Override
+	
 	/**
 	 * Función que devuelve la información del alumno
 	 * 
 	 * @return Información del alumno
 	 */
+	@Override
 	public String toString() {
 		// Variable donde se almacenará la cadena con la información
 		String cadena = "";
 		
 		// Almacenamos la información
-		cadena += "Nombre: " + this.nombre;
-		cadena += "\nNota media: " + this.notaMedia;
+		cadena = this.nombre + ": " + this.notaMedia;
 		
 		// Devolvemos la cadena
 		return cadena;
