@@ -11,27 +11,27 @@ public class Articulo {
 	/**
 	 * Atributo que almacena el código
 	 */
-	int codigo = 0;
+	private int codigo = 0;
 
 	/**
 	 * Atributo que almacena la descripción
 	 */
-	String descripcion = "";
+	private String descripcion = "";
 
 	/**
 	 * Atributo que almacena el precio de compra
 	 */
-	double precioCompra = 0.0;
+	private double precioCompra = 0.0;
 
 	/**
 	 * Atributo que almacena el precio de venta
 	 */
-	double precioVenta = 0.0;
+	private double precioVenta = 0.0;
 
 	/**
 	 * Atributo que almacena el stock
 	 */
-	int stock = 0;
+	private int stock = 0;
 
 	/**
 	 * Constructor vacío

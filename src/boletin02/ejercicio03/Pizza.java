@@ -11,23 +11,23 @@ public class Pizza {
 	/**
 	 * Atributo que almacena el código único de la pizza
 	 */
-	int codigo = 0;
+	private int codigo = 0;
 
 	/**
 	 * Atributo que almacena el tamaño de la pizza pudiendo ser Mediana o Familiar
 	 */
-	String tamanyo = "";
+	private String tamanyo = "";
 
 	/**
 	 * Atributo que almacena el tipo de la pizza pudiendo ser Margarita,
 	 * CuatroQuesos o Funghi
 	 */
-	String tipo = "";
+	private String tipo = "";
 
 	/**
 	 * Atributo que almacena el estado de la pizza pudiendo ser Pedida o Servida
 	 */
-	String estado = "Pedida";
+	private String estado = "Pedida";
 
 	/**
 	 * Constructor vacío
